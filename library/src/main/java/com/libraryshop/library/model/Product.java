@@ -10,11 +10,14 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+
 
 @Entity
 @AllArgsConstructor
-@Data
+@Getter
+@Setter
 @Table(name = "products")
 public class Product {
 
@@ -33,13 +36,12 @@ public class Product {
   @Column(name= "PRODUCT_ID")
   private int productId;
   
-  @OneToOne(mappedBy ="product", cascade = {CascadeType.ALL})
+  @OneToOne(mappedBy ="product", cascade = CascadeType.ALL)   //<Set> OneToMany  EN produkt har många ordrar 
   OrderDetails orderDetails;
   
   private String productName;
   private double unitPrice;
   private int unitsInStock;
   private int unitsOnorder;
-  //<Set> OneToMany  EN produkt har många ordrar 
 
 }

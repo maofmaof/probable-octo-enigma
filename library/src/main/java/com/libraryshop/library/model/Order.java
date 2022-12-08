@@ -33,7 +33,12 @@ public class Order{
 
     private String orderDate;
     
-    @OneToOne(mappedBy = "order", cascade = {CascadeType.ALL})
-    OrderDetails orderDetails;
+    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
+    OrderDetails orderDetails; //one to many?
+
+    public void setOrderDetails(OrderDetails orderDetails) {
+        this.orderDetails = orderDetails;
+        this.orderDetails.setOrder(this);
+    }
 
 }
