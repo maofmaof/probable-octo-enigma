@@ -1,5 +1,6 @@
 package com.libraryshop.library.model;
 
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -7,12 +8,13 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrimaryKeyJoinColumn;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
-
 
 @Entity
 @AllArgsConstructor
@@ -33,12 +35,12 @@ public class Product {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  @Column(name= "PRODUCT_ID")
+  @Column(name = "PRODUCT_ID")
   private int productId;
-  
-  @OneToOne(mappedBy ="product", cascade = CascadeType.ALL)   //<Set> OneToMany  EN produkt har många ordrar 
-  OrderDetails orderDetails;
-  
+
+  @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
+  private Set<OrderDetails> orderDetails;
+
   private String productName;
   private double unitPrice;
   private int unitsInStock;

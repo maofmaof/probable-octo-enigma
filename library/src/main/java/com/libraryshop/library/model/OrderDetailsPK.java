@@ -18,6 +18,7 @@ public class OrderDetailsPK implements Serializable {
 
     @Column(name ="order_id")
     private int orderId;
+
     @Column(name="product_id")
     private int productId;
 

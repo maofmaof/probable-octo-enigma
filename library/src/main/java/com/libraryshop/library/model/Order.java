@@ -1,11 +1,13 @@
 package com.libraryshop.library.model; 
+import java.util.Set;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,12 +35,11 @@ public class Order{
 
     private String orderDate;
     
-    @OneToOne(mappedBy = "order", cascade = CascadeType.ALL)
-    OrderDetails orderDetails; //one to many?
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    public Set<OrderDetails> orderDetails;
 
-    public void setOrderDetails(OrderDetails orderDetails) {
+    public void setOrderDetails(Set<OrderDetails>orderDetails) {
         this.orderDetails = orderDetails;
-        this.orderDetails.setOrder(this);
     }
 
 }

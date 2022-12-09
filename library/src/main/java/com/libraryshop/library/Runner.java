@@ -36,12 +36,12 @@ public class Runner implements CommandLineRunner {
     productRepository.save(new Product("TV4", 100, 240, 10));
     productRepository.save(new Product("TV5", 100, 270, 10));
     productRepository.save(new Product("TV6", 100, 20, 10));
-    productRepository.save(new Product("TV1", 100, 20, 10));
-    productRepository.save(new Product("TV2", 100, 20, 10));
-    productRepository.save(new Product("TV3", 100, 20, 10));
-    productRepository.save(new Product("TV4", 100, 20, 10));
-    productRepository.save(new Product("TV5", 100, 20, 10));
-    productRepository.save(new Product("TV6", 100, 20, 10));
+    productRepository.save(new Product("TV7", 100, 20, 10));
+    productRepository.save(new Product("TV8", 100, 20, 10));
+    productRepository.save(new Product("TV9", 100, 20, 10));
+    productRepository.save(new Product("TV10", 100, 20, 10));
+    productRepository.save(new Product("TV11", 100, 20, 10));
+    productRepository.save(new Product("TV12", 100, 20, 10));
 
     }
 
